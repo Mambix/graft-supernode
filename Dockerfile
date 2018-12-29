@@ -3,17 +3,10 @@ MAINTAINER Mambix Ltd. <ledi.mambix@gmail.com>
 
 RUN apk update && \
   apk add git \
-  build-essential \
+  build-base \
   cmake \ 
-  pkg-config \
-  libboost-all-dev \ 
-  libssl-dev \
-  autoconf \
-  automake \ 
-  check \
-  libpcre3-dev \
-  rapidjson-dev \ 
-  libreadline-dev
+  wget \
+  gcc
 
 COPY ./build.sh /
 RUN chmod +x /build.sh

@@ -1,8 +1,12 @@
 FROM alpine:3.8
 MAINTAINER Mambix Ltd. <ledi.mambix@gmail.com>
 
-RUN apt-get update && \
-  apt-get install -y software-properties-common
+RUN apk update && \
+  apk add git
+
+COPY ./build.sh /
+RUN chmod +x /build.sh
+CMD /build.sh
 
 COPY ./run.sh /
 RUN chmod +x /run.sh

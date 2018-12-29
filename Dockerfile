@@ -1,18 +1,37 @@
-FROM alpine:3.8
-MAINTAINER Mambix Ltd. <ledi.mambix@gmail.com>
-
+FROM alpine:3.8 AS build-env
 WORKDIR /supernode
 
 RUN apk update && \
   apk add git \
-  build-base \
   cmake \ 
   wget \
-  gcc
+  build-base \ 
+  boost-dev \
+  pcre-dev \
+  pkgconfig \
+  openssl-dev \
+  rapidjson-dev \
+  readline-dev \
+  libexecinfo-dev \
+  libunwind-dev \
+  check-dev \
+  automake \
+  autoconf \
+  pkgconf
 
 COPY ./build.sh /
 RUN chmod +x /build.sh
-CMD /build.sh
+RUN /build.sh
+
+FROM alpine:3.8
+MAINTAINER Mambix Ltd. <ledi.mambix@gmail.com>
+WORKDIR /supernode
+
+RUN apk update && \
+  apk add boost \
+  openssl
+
+COPY --from=build-env /supernode/graft-ng /supernode
 
 COPY ./run.sh /
 RUN chmod +x /run.sh

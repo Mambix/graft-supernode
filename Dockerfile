@@ -1,6 +1,8 @@
 FROM alpine:3.8
 MAINTAINER Mambix Ltd. <ledi.mambix@gmail.com>
 
+WORKDIR /supernode
+
 RUN apk update && \
   apk add git \
   build-base \

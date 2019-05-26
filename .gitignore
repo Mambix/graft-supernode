@@ -1,3 +1,4 @@
 *.retry
 .ansible-vault.secret
 .vscode
+hosts

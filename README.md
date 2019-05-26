@@ -19,7 +19,7 @@ sudo apt install python
 
 After is done you can run the `access.yml` playbook:
 ```
-ansible-playbook -i hosts -l supernode -e ansible_user=root --ask-pass access.yml
+ansible-playbook -i hosts -l supernodes -e ansible_user=root --ask-pass access.yml
 ```
 
 After the playbook is run `root` access will be disabled, so make sure your `~/.ssh/id_rsa` key
@@ -34,5 +34,5 @@ ansible-playbook -i hosts software.yml
 
 To run only for one server type:
 ```
-ansible-playbook -i hosts -l supernode software.yml
+ansible-playbook -i hosts -l supernodes software.yml
 ```

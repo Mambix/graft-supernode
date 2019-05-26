@@ -1,0 +1,16 @@
+[supernodes]
+192.168.13.37
+
+# Or specify groups like
+
+## [tier1]
+## alpha.example.org
+## beta.example.org
+## 192.168.1.100
+## 192.168.1.110
+
+## [tier1]
+## alpha2.example.org
+## beta2.example.org
+## 192.168.2.100
+## 192.168.2.110
